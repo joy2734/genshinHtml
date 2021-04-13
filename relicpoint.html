@@ -1,0 +1,90 @@
+<html>
+<head> 
+<title>캐릭5성</title>
+</head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="./relicpoint.css" rel="stylesheet" type="text/css"  />
+<!-- and (min-width: 512px) and (max-width: 1024px) -->
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/underscore@1.12.1/underscore-min.js"></script>
+
+<body>
+<div class="banner">
+	<div id="list">홈으로가기</div>
+</div>
+
+<div style="height:80%;">
+    <div style="float:left;width:30%;height:100%;background-repeat:no-repeat;padding: 20px">
+        <h2>성유물 점수 계산</h2>
+        부위: <select id="eq">
+            <option value="1">꽃/깃</option>
+            <option value="2">시계/성배/왕관</option>
+        </select><br/>
+        메인옵션타입:<select id="type">
+            <option value="1">공퍼/체퍼</option>
+            <option value="2">방퍼</option>
+        </select><br/>
+        메인: <input id="dmgPoint" type="text" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" />%<br/>
+        치확: <input id="creticalRating" type="text" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" />%<br/>
+        치피: <input id="creticalDemage" type="text" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" />%
+        <button id="computing">계산</button>
+        <div style="padding: 10px;">성유물포인트: <input id="relicPoint" type="text" readonly /></div>
+        <div id="btic" style="color: red; font-size: 15px;"></div>
+    </div>
+	<div class="relic-info" ></div>
+</div>
+
+<script>
+	
+	$(document).ready(function(){
+        var relicRatio = $('#eq').val() == 1 ? 60 : 50;
+
+        $('#creticalRating').on('keyup', function(evt){  
+            if($(evt.target).val() > 100) {
+                alert("치확은 100%를 넘을 수 없습니다.")
+                $(evt.target).val("100")
+            }
+        });
+
+        $('#computing').on('click', function(evt){
+
+            if(!$('#dmgPoint').val()){
+                alert("(HP/공퍼/방퍼)를 입력해주세요.")
+                return;
+            }
+
+            if(!$('#creticalRating').val()){
+                alert("치확을 입력해주세요.")
+                return;
+            }
+            
+            if(!$('#creticalDemage').val()){
+                alert("치피를 입력해주세요.")
+                return;
+            }
+
+            var relicPoint  = ($("#dmgPoint").val()* ($('#type').val() == "1"? 2: 1.6)) + $("#creticalRating").val() * 3 + $("#creticalDemage").val() * 1.5;
+
+            
+            if(relicPoint > relicRatio){
+                $('#btic').text("해당성유물은 비틱 성유물입니다.!!!");
+            }else{
+                $('#btic').text("");
+            }
+            
+
+            $('#relicPoint').val(relicPoint);
+        });
+
+
+	});
+
+</script>
+
+</body>
+</html>
+

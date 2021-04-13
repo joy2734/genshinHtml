@@ -1,0 +1,62 @@
+<html>
+<head> 
+<title>캐릭5성</title>
+</head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="./character.css" rel="stylesheet" type="text/css"  />
+<!-- and (min-width: 512px) and (max-width: 1024px) -->
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/underscore@1.12.1/underscore-min.js"></script>
+
+<body>
+<div class="banner">
+	<div id="list">홈으로가기</div>
+</div>
+
+<div style="height:71%;">
+	<div style="float:left;width:10%;height:100%;    overflow-y: scroll;">
+		<div class="chararea kc-info"></div>
+		<div class="chararea ab-info"></div>
+		<div class="chararea bh-info"></div>
+		<div class="chararea bt-info"></div>
+		<div class="chararea cc-info"></div>
+		<div class="chararea cl-info"></div>
+		<div class="chararea de-info"></div>
+		<div class="chararea hd-info"></div>
+		<div class="chararea hj-info"></div>
+		<div class="chararea kw-info"></div>
+		<div class="chararea mn-info"></div>
+		<div class="chararea s-info"></div>
+		<div class="chararea tt-info"></div>
+		<div class="chararea zin-info"></div>
+		<div class="chararea zl-info"></div>
+	</div>
+	<div class="character-info" style="float:left;width:90%;height:100%;background-repeat:no-repeat;">
+
+	</div>
+</div>
+
+<script>
+	
+	$(document).ready(function(){
+		
+		$(".chararea").on('click', function(evt){
+			$('.character-info').css("background-image", "url(images/character5/" + (evt.target.classList[1]).split("-")[0] + "1.jpg)")
+		});
+		
+		$('#list').on('click', function(){
+			location.href = "home.html";
+		});
+
+		$('.kc-info').click();
+	});
+
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,82 @@
+<html>
+<head> 
+<title>캐릭5성</title>
+</head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="./creticalRate.css" rel="stylesheet" type="text/css"  />
+<!-- and (min-width: 512px) and (max-width: 1024px) -->
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/underscore@1.12.1/underscore-min.js"></script>
+
+<body>
+<div class="banner">
+	<div id="list">홈으로가기</div>
+</div>
+
+<div style="height:80%;">
+    <div style="float:left;width:30%;height:100%;background-repeat:no-repeat;padding: 20px">
+        <h2>치명확률/피해 비율에 관한 효율치 계산기입니다.(수정필요)</h2>
+        치확: <input id="creticalRating" type="text" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" />%
+        치피: <input id="creticalDemage" type="text" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" />%
+        <button id="computing">계산</button>
+        <div style="padding: 10px;">치명효율계산: <input id="creticalComputing" type="text" readonly /></div>
+    </div>
+	<div class="cretical-info" ></div>
+</div>
+
+<script>
+    var creticalJSON = [1.165, 1.31, 1.465, 1.6, 1.805, 1.9755, 1.984, 1.995, 2.001, 2.105, 2.125];
+    var crePercent = ["50%", "55%", "60%", "75%", "85%", "90%", "95%", "96%", "98%", "99%", "100%"];
+
+	
+	$(document).ready(function(){
+
+        function getCreDmgRating(creDmgRating){
+            var result;
+            var getResult = false;
+            _.each(creticalJSON, function(creticalRatio, i){
+                if(creticalRatio >= creDmgRating && !getResult){
+                    getResult = true;
+                    result = crePercent[i]
+                }
+            });
+
+            return result;
+        }
+
+        $('#creticalRating').on('keyup', function(evt){  
+            if($(evt.target).val() > 100) {
+                alert("치확은 100%를 넘을 수 없습니다.")
+                $(evt.target).val("100")
+            }
+        });
+
+        $('#computing').on('click', function(evt){
+
+            if(!$('#creticalRating').val()){
+                alert("치확을 입력해주세요.")
+                return;
+            }
+            
+            if(!$('#creticalDemage').val()){
+                alert("치피를 입력해주세요.")
+                return;
+            }
+
+            var creDmgRating  = 1 + ($("#creticalRating").val()/100) * ($("#creticalDemage").val()/100);
+
+            $('#creticalComputing').val(getCreDmgRating(creDmgRating));
+        });
+
+
+	});
+
+</script>
+
+</body>
+</html>
+

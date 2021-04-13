@@ -1,0 +1,89 @@
+@media screen and (min-width: 390px){
+    .banner{
+        height:19%;
+        background-image: url(images/banner.png);
+        background-repeat: repeat-x;
+    }
+    #list{
+        float: right;
+        background: #91d7f7;
+        padding: 10px;
+        margin: 6px;
+        color: white;
+        border-radius: 35px;
+        cursor:pointer;
+    }
+    
+    .chararea{
+        background-size: 90%;
+        background-repeat: no-repeat;
+        height: 100px;
+        cursor: pointer;
+    }
+    
+    .character-info{
+        background-size: 90%;
+    }
+    
+    .kc-info{
+        background-image: url(images/character5/kc.png);
+    }
+    
+    .ab-info{
+        background-image: url(images/character5/ab.PNG);
+    }
+    
+    .bh-info{
+        background-size: 80%;
+        background-image: url(images/character5/bh.PNG);
+    }
+    
+    .bt-info{
+        background-image: url(images/character5/bt.png);
+    }
+    
+    .cc-info{
+        background-image: url(images/character5/cc.PNG);
+    }
+    
+    .cl-info{
+        background-image: url(images/character5/cl.PNG);
+    }
+    
+    .de-info{
+        background-image: url(images/character5/de.png);
+    }
+    
+    .hd-info{
+        background-image: url(images/character5/hd.PNG);
+    }
+    
+    .hj-info{
+        background-size: 80%;
+        background-image: url(images/character5/hj.PNG);
+    }
+    
+    .kw-info{
+        background-image: url(images/character5/kw.png);
+    }
+    
+    .mn-info{
+        background-image: url(images/character5/mn.png);
+    }
+    
+    .s-info{
+        background-image: url(images/character5/s.PNG);
+    }
+    
+    .tt-info{
+        background-image: url(images/character5/tt.PNG);
+    }
+    
+    .zin-info{
+        background-image: url(images/character5/zin.PNG);
+    }
+    
+    .zl-info{
+        background-image: url(images/character5/zl.PNG);
+    }
+}

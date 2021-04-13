@@ -1,0 +1,26 @@
+@media screen and (min-width: 390px){
+    .banner{
+        height:19%;
+        background-image: url(images/banner.png);
+    }
+
+    #list{
+        float: right;
+        background: #91d7f7;
+        padding: 10px;
+        margin: 6px;
+        color: white;
+        border-radius: 35px;
+        cursor:pointer;
+    }
+    
+    .relic-info{
+        float:right;
+        width:50%;
+        height:100%;
+        margin-right: 60px;
+        background-image: url(images/relicimg.png);
+        background-size: 80%;
+        background-repeat: no-repeat;
+    }
+}

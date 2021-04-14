@@ -1,0 +1,96 @@
+@media screen and (min-width: 390px){
+    .banner{
+        height:19%;
+        background-image: url(images/banner.png);
+        background-repeat: repeat-x;
+    }
+    #list{
+        float: right;
+        background: #91d7f7;
+        padding: 10px;
+        margin: 6px;
+        color: white;
+        border-radius: 35px;
+        cursor:pointer;
+    }
+    
+    .chararea{
+        background-size: 80%;
+        background-repeat: no-repeat;
+        height: 160px;
+        cursor: pointer;
+    }
+    
+    .character-info{
+        background-size: 70%;
+    }
+
+    .ab-info{
+        background-image: url(images/character4/ab1.PNG);
+    }
+    
+    .bbr-info{
+        background-image: url(images/character4/bbr1.PNG);
+    }
+    
+    .bd-info{
+        background-image: url(images/character4/bd1.PNG);
+    }
+    
+    .bn-info{
+        background-image: url(images/character4/bn1.PNG);
+    }
+    
+    .diona-info{
+        background-image: url(images/character4/diona1.PNG);
+    }
+    
+    .hc-info{
+        background-image: url(images/character4/hc1.PNG);
+    }
+    
+    .hl-info{
+        background-image: url(images/character4/hl1.PNG);
+    }
+    
+    .jw-info{
+        background-image: url(images/character4/jw1.PNG);
+    }
+    
+    .keia-info{
+        background-size: 80%;
+        background-image: url(images/character4/keia1.PNG);
+    }
+    
+    .ls-info{
+        background-image: url(images/character4/ls1.PNG);
+    }
+    
+    .lz-info{
+        background-image: url(images/character4/lz1.PNG);
+    }
+    
+    .mg-info{
+        background-image: url(images/character4/mg1.PNG);
+    }
+    
+    .nl-info{
+        background-image: url(images/character4/nl1.PNG);
+    }
+    
+    .ps-info{
+        background-image: url(images/character4/ps1.PNG);
+    }
+    
+    .razer-info{
+        background-image: url(images/character4/razer1.PNG);
+    }
+
+    .st-info{
+        background-image: url(images/character4/st1.PNG);
+    }
+
+    .sy-info{
+        background-image: url(images/character4/sy1.PNG);
+    }
+}

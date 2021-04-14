@@ -1,46 +1,41 @@
-@media screen and (min-width: 390px){
+@media screen and (min-width: 420px){
     .banner{
         height:19%;
         background-image: url(images/banner.png);
     }
     .char-jaehwa{
         float: left;
-        width: 50%;
-        height: 90%;
+        width:100%;
+        height: 100%;
         background-image: url(images/char_jaehwa.png);
-        background-size: 100%;
         background-repeat: no-repeat;
     }
     .prop-item{
         float: left;
-        width: 100%;
-        height: 70%;
+        width:100%;
+        height: 100%;
         background-image: url(images/property_item.png);
-        background-size: 100%;
         background-repeat: no-repeat;
     }
     .relic-func{
         float: left;
-        width: 60%;
-        height: 100%;
+        width:100%;
+        height: 140%;
         background-image: url(images/relic_func.PNG);
-        background-size: 100%;
         background-repeat: no-repeat;
     }
     .relic-op{
         float: left;
-        width: 100%;
-        height: 80%;
+        width:100%;
+        height: 100%;
         background-image: url(images/relic_option.png);
-        background-size: 100%;
         background-repeat: no-repeat;
     }
     .weapon-jaehwa{
         float: left;
-        width: 50%;
-        height: 90%;
+        width:100%;
+        height: 100%;
         background-image: url(images/weapon_jaehwa.png);
-        background-size: 100%;
         background-repeat: no-repeat;
     }
 }

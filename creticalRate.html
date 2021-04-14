@@ -1,6 +1,6 @@
 <html>
 <head> 
-<title>캐릭5성</title>
+<title>치명효율페이지</title>
 </head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="./creticalRate.css" rel="stylesheet" type="text/css"  />
@@ -29,8 +29,8 @@
 </div>
 
 <script>
-    var creticalJSON = [1.165, 1.31, 1.465, 1.6, 1.805, 1.9755, 1.984, 1.995, 2.001, 2.105, 2.125];
-    var crePercent = ["50%", "55%", "60%", "75%", "85%", "90%", "95%", "96%", "98%", "99%", "100%"];
+    var creticalJSON = [1, 1.5, 2, 2.5, 3, 4, 1000];
+    var crePercent = ["94%", "99%", "100%", "99%", "97%", "93%", "93%이하의효율입니다."];
 
 	
 	$(document).ready(function(){
@@ -67,10 +67,14 @@
                 return;
             }
 
-            var creDmgRating  = 1 + ($("#creticalRating").val()/100) * ($("#creticalDemage").val()/100);
+            var creDmgRating  = $("#creticalDemage").val()/$("#creticalRating").val()//1 + ($("#creticalRating").val()/100) * ($("#creticalDemage").val()/100);
 
             $('#creticalComputing').val(getCreDmgRating(creDmgRating));
         });
+
+		$('#list').on('click', function(){
+			location.href = "home.html";
+		});
 
 
 	});

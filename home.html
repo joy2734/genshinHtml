@@ -16,14 +16,18 @@
 
 <body style="margin:0px;">
 <div class="banner">
-    <img id="background" src="images/ayaka.png" width="100%" height="110%" />
+    <selection>
+        <img id="background" src="images/ayaka.png" width="100%" height="110%" />
+    </selection>
     <div class="header" style="transform: translateX(0px);">
         <div class="audio-controller" style="transform: translateX(0px);">
             <img src="images/audio_off.png" width="80%" class="audio-controller--off">
             <img src="images/audio_on.png" width="80%" class="audio-controller--on">
         </div>
         <div class="header__logo">
-            <img src="images/logo.png" width="100%" />
+            <a href="home.html" class="header__navitem">
+                <img src="images/logo.png" width="100%" />
+            </a>
         </div>
         <div class="header__navbar">
             <a href="home.html" class="header__navitem">홈</a>
@@ -40,11 +44,12 @@
             </div>
             <a href="relicpoint.html" class="header__navitem">성유물 점수</a>
             <a href="creticalRate.html" class="header__navitem">크리효율</a>
-            <a href="https://genshin.mihoyo.com/ko/download" class="header__download">
+            <a href="https://genshin.mihoyo.com/ko/home" class="header__navitem" target="_blank">원신공식</a>
+            <a href="https://cafe.naver.com/genshin" class="header__navitem" target="_blank">카페</a>
+            <a href="https://genshin.mihoyo.com/ko/download" class="header__download" target="_blank">
                 <div class="transition-img"></div>
             </a>
         </div>
-
     </div>
     <section class="news">
         <h3>
@@ -178,12 +183,23 @@
             isOn ? $('#background-sound')[0].pause() : $('#background-sound')[0].play()
         });
 
-        //top menu and menu
-        $('.header__navitem  p').on('mouseover', function(evt){
-            $('.header__navitem__sublist').addClass("navitem__focus");
+        //dropmenu
+        $('.header__navitem__more, .header__navitem__sublist').hover(function(evt) {
+            $('.header__navitem__sublist').addClass("navitem__active");
+        }, function(evt){
+            $('.header__navitem__sublist').removeClass("navitem__active");
+            console.log(evt.target , $('.header__navitem__sublist').closest(".header__navitem").find("p"))
+            $('.header__navitem__sublist').parents(".header__navitem").find("p").removeClass("navitem__focus")
         });
-        $('.header__navitem  p').on('mouseout', function(evt){
-            $('.header__navitem__sublist').removeClass("navitem__focus");
+
+        //제목활성화
+        $('.header__navitem').not(".header__navitem__sublist .header__navitem").on('mouseover', function(evt){
+            $(evt.target).addClass("navitem__focus");
+        });
+        $('.header__navitem').not(".header__navitem__sublist .header__navitem").on('mouseout', function(evt){
+            if($('.header__navitem__sublist').css('opacity') == "0"){
+                $(evt.target).removeClass("navitem__focus");
+            }
         });
 
 	});

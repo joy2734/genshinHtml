@@ -1,8 +1,10 @@
 <html>
 <head> 
-<title>원신정보페이지</title>
+<title>원신——모험이 가득한 신비한 세계로 떠나자</title>
 </head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link data-n-head="true" rel="icon" type="image/x-icon" href="images/favicon.ico">
+<link href="./slider.css" rel="stylesheet" type="text/css"  />
 <link href="./home.css" rel="stylesheet" type="text/css"  />
 <script
   src="https://code.jquery.com/jquery-2.2.4.min.js"
@@ -10,11 +12,132 @@
   crossorigin="anonymous"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/underscore@1.12.1/underscore-min.js"></script>
+<script src="./slider.js"></script>
 
-<body>
-<div class="banner"></div>
-<h2>원신정보페이지 입니다.</h2>
-<div style="height:71%;">
+<body style="margin:0px;">
+<div class="banner">
+    <img id="background" src="images/ayaka.png" width="100%" height="110%" />
+    <div class="header" style="transform: translateX(0px);">
+        <div class="audio-controller" style="transform: translateX(0px);">
+            <img src="images/audio_off.png" width="80%" class="audio-controller--off">
+            <img src="images/audio_on.png" width="80%" class="audio-controller--on">
+        </div>
+        <div class="header__logo">
+            <img src="images/logo.png" width="100%" />
+        </div>
+        <div class="header__navbar">
+            <a href="home.html" class="header__navitem">홈</a>
+            <div class="header__navitem header__navitem__more">
+                <p>캐릭터</p>
+                <ul class="header__navitem__sublist">
+                    <li>
+                        <a href="character5.html" class="header__navitem">5성 캐릭터</a>
+                    </li>
+                    <li>
+                        <a href="character4.html" class="header__navitem">4성 캐릭터</a>
+                    </li>
+                </ul>
+            </div>
+            <a href="relicpoint.html" class="header__navitem">성유물 점수</a>
+            <a href="creticalRate.html" class="header__navitem">크리효율</a>
+            <a href="https://genshin.mihoyo.com/ko/download" class="header__download">
+                <div class="transition-img"></div>
+            </a>
+        </div>
+
+    </div>
+    <section class="news">
+        <h3>
+            소식
+        </h3>
+        <div class="news__main">
+            <div class="news__swiper">
+                <!-- Slideshow container -->
+                <div class="slideshow-container">
+        
+                    <!-- Full-width images with number and caption text -->
+                    <div class="mySlides fade">
+                    <div class="numbertext">1 / 4</div>
+                    <img src="images/slider/benti.jpg" style="width:100%;">
+                    <div class="text">벤티</div>
+                    </div>
+                
+                    <div class="mySlides fade">
+                    <div class="numbertext">2 / 4</div>
+                    <img src="images/slider/lozaria.jpg" style="width:100%;">
+                    <div class="text">로자리아</div>
+                    </div>
+                
+                    <div class="mySlides fade">
+                    <div class="numbertext">3 / 4</div>
+                    <img src="images/slider/tartalria.jpg" style="width:100%;">
+                    <div class="text">타르탈리아</div>
+                    </div>
+                    
+                    <div class="mySlides fade">
+                        <div class="numbertext">4 / 4</div>
+                        <img src="images/slider/zonglae.jpg" style="width:100%;">
+                        <div class="text">종려</div>
+                    </div>
+                
+                    <!-- Next and previous buttons -->
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+                <br>
+                <!-- The dots/circles -->
+                <div style="text-align:center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+            </div>
+            <div class="news__content">
+                <ul class="news__tab__list">
+                    <li class="news__tab__item">
+                        최신 링크
+                    </li>
+                </ul>
+                <ul class="news__list">
+                    <li>
+                        <a href="creticalRate.html" class="news__item" title="링크text적기">
+                            <p class="news__title ellipsis">링크에대한정보1</p>
+                            <p class="news__date">2021년 01월 13일</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="creticalRate.html" class="news__item" title="링크text적기">
+                            <p class="news__title ellipsis">링크에대한정보2</p>
+                            <p class="news__date">2021년 01월 15일</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="creticalRate.html" class="news__item" title="링크text적기">
+                            <p class="news__title ellipsis">링크에대한정보3</p>
+                            <p class="news__date">2021년 02월 13일</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="creticalRate.html" class="news__item" title="링크text적기">
+                            <p class="news__title ellipsis">링크에대한정보4</p>
+                            <p class="news__date">2021년 03월 13일</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="creticalRate.html" class="news__item" title="링크text적기">
+                            <p class="news__title ellipsis">링크에대한정보5</p>
+                            <p class="news__date">2021년 04월 13일</p>
+                        </a>
+                    </li>
+                    <a href="creticalRate.html" class="news__more">추가링크보기</a><!-- 추가링크페이지로이동 -->
+                </ul>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- <h2>원신정보페이지 입니다.</h2> -->
+<!-- <div style="height:71%;">
     <div style="width: 15%; float: left;">
         <ul>
             <li>
@@ -38,15 +161,35 @@
         <div class="relic-func"></div>
         <div class="relic-op"></div>
     </div>
-</div>
+</div> -->
 
 <script>
-	
+    var isOn = false;
 	$(document).ready(function(){
-		
+
+        $('.audio-controller .audio-controller--on').hide();
+        $('#background-sound')[0].pause();
+
+        //audio on/off
+        $('.audio-controller .audio-controller--on, .audio-controller .audio-controller--off').on('click',function(evt){
+            isOn = ($(evt.target).prop('class')).split("audio-controller--")[1] == "on";
+            $('.audio-controller .audio-controller--on, .audio-controller .audio-controller--off').hide();
+            $('.audio-controller--' + (isOn ? "off": "on")).show();
+            isOn ? $('#background-sound')[0].pause() : $('#background-sound')[0].play()
+        });
+
+        //top menu and menu
+        $('.header__navitem  p').on('mouseover', function(evt){
+            $('.header__navitem__sublist').addClass("navitem__focus");
+        });
+        $('.header__navitem  p').on('mouseout', function(evt){
+            $('.header__navitem__sublist').removeClass("navitem__focus");
+        });
+
 	});
 
 </script>
+<audio id="background-sound" autoplay="autoplay" loop="true" src="images/siteAudio.mp3" style="position: absolute; top: -1000px;"></audio>
 
 </body>
 </html>

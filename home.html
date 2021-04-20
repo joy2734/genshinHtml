@@ -16,6 +16,14 @@
 
 <body style="margin:0px;">
 <div class="banner">
+    <div class="main-menu">
+        <span class="circle-item citem1" popupKey="ch" title="캐릭터 레벨업에 드는 재화량 표시"><p class="popup-info-label">캐릭터 재화</p></span>
+        <span class="circle-item citem2" popupKey="we" title="무기 레벨업에 드는 재화량 표시"><p class="popup-info-label">무기 재화</p></span>
+        <span class="circle-item citem3" popupKey="pr" title="각 캐릭터의 특성 6레벨 이후 주간보스재료"><p class="popup-info-label">특성 재료</p></span>
+        <span class="circle-item citem4" popupKey="rf" title="성유물 부위별 옵션"><p class="popup-info-label">성유물옵션</p></span>
+        <span class="circle-item citem5" popupKey="ro" title="성유물 세트 옵션 능력시표시"><p class="popup-info-label">성유물 능력</p></span>
+    </div>
+
     <selection>
         <img id="background" src="images/ayaka.png" width="100%" height="100%" />
         <div class="poster__arrows">
@@ -51,12 +59,19 @@
             <a href="creticalRate.html" class="header__navitem">크리효율</a>
             <a href="https://genshin.mihoyo.com/ko/home" class="header__navitem" target="_blank">원신공식</a>
             <a href="https://cafe.naver.com/genshin" class="header__navitem" target="_blank">카페</a>
+            <div class="animate-play play-btn"></div>
+            <div class="animate-stop play-btn"></div>
             <a href="https://genshin.mihoyo.com/ko/download" class="header__download" target="_blank">
                 <div class="transition-img"></div>
             </a>
         </div>
     </div>
     <section class="news">
+        <div class="poster__arrows reverse">
+            <div class="poster__arrow poster__arrow-1 reverse"></div> 
+            <div class="poster__arrow poster__arrow-2 reverse"></div> 
+            <div class="poster__arrow poster__arrow-3 reverse"></div>
+        </div>
         <h3>
             소식
         </h3>
@@ -140,7 +155,7 @@
                             <p class="news__date">2021년 04월 13일</p>
                         </a>
                     </li>
-                    <a href="creticalRate.html" class="news__more">추가링크보기</a><!-- 추가링크페이지로이동 -->
+                    <a href="addLinkPage.html" class="news__more">추가링크보기</a><!-- 추가링크페이지로이동 -->
                 </ul>
             </div>
         </div>
@@ -172,38 +187,31 @@
         </div>
     </div>
 </div>
-<!-- <h2>원신정보페이지 입니다.</h2> -->
-<!-- <div style="height:71%;">
-    <div style="width: 15%; float: left;">
-        <ul>
-            <li>
-                <td><a href="character5.html">5성 캐릭정보</a></td>
-            </li>
-            <li>
-                <td><a href="character4.html">4성 캐릭정보</a></td>
-            </li>
-            <li>
-                <td><a href="relicpoint.html">성유물 비틱점수 계산</a></td>
-            </li>
-            <li>
-                <td><a href="creticalRate.html">크리효율 계산</a></td>
-            </li>
-        </ui>
-    </div>
-    <div style="float:left;width: 75%;">
-        <div class="char-jaehwa"></div>
-        <div class="weapon-jaehwa"></div>
-        <div class="prop-item"></div>
-        <div class="relic-func"></div>
-        <div class="relic-op"></div>
-    </div>
-</div> -->
+<div class="popup">
+    <div class="popup-info char-jaehwa"></div>
+    <div class="popup-info weapon-jaehwa"></div>
+    <div class="popup-info prop-item"></div>
+    <div class="popup-info relic-func"></div>
+    <div class="popup-info relic-op"></div>
+</div>
 
 <script>
+    var moveIcon,gradientIcon;
     var isOn = false;
+    var opacity = 0.3;
+    var popupkey = {
+        "ch": 'char-jaehwa', 
+        "we": 'weapon-jaehwa',
+        "pr": 'prop-item',
+        "rf": "relic-func",
+        "ro": "relic-op"
+    };
+
 	$(document).ready(function(){
 
         $('.audio-controller .audio-controller--on').hide();
+        $('.play-btn').hide();
+        $('.animate-play').show();
         $('#background-sound')[0].pause();
 
         //audio on/off
@@ -214,12 +222,24 @@
             isOn ? $('#background-sound')[0].pause() : $('#background-sound')[0].play()
         });
 
+        //icon animation start/stop
+        $('.animate-play, .animate-stop').on('click', function(evt){
+            $('.play-btn').hide();
+            if(evt.target.classList[0] == "animate-play"){
+                $('.animate-stop').show();
+                animationStart()
+            }else{
+                $('.animate-play').show();
+                animationStop()
+            }
+        });
+
         //dropmenu
         $('.header__navitem__more, .header__navitem__sublist').hover(function(evt) {
             $('.header__navitem__sublist').addClass("navitem__active");
         }, function(evt){
             $('.header__navitem__sublist').removeClass("navitem__active");
-            console.log(evt.target , $('.header__navitem__sublist').closest(".header__navitem").find("p"))
+            //console.log(evt.target , $('.header__navitem__sublist').closest(".header__navitem").find("p"))
             $('.header__navitem__sublist').parents(".header__navitem").find("p").removeClass("navitem__focus")
         });
 
@@ -228,11 +248,69 @@
             $(evt.target).addClass("navitem__focus");
         });
         $('.header__navitem').not(".header__navitem__sublist .header__navitem").on('mouseout', function(evt){
-            if($('.header__navitem__sublist').css('opacity') == "0"){
-                $(evt.target).removeClass("navitem__focus");
-            }
+            $(evt.target).removeClass("navitem__focus");
         });
 
+        $('.poster__arrows').not(".reverse").click(function(){
+            window.scrollTo({
+                top: 980,
+                left: 0,
+                behavior: "smooth"
+            });
+        });
+
+        $('.poster__arrows.reverse').click(function(){
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: "smooth"
+            });
+        })
+
+        $('.circle-item').on("mouseover", function(evt){
+            $('.popup').show();
+            $('.popup-info').hide();
+            console.log($(evt.target).attr("popupKey"));
+            var selectEl= popupkey[$(evt.target).attr("popupKey")];
+            console.log(Number($(evt.target).css('top').split("px")[0]) + $('.'+selectEl).height() > window.innerHeight) 
+            console.log(Number($(evt.target).css('left').split("px")[0]) + $('.'+selectEl).width() > window.innerWidth) 
+            $('.popup').css({
+                top: $(evt.target).css('top'),
+                left: Number($(evt.target).css('left').split("px")[0]) + $('.'+selectEl).width() > window.innerWidth ? Number($(evt.target).css('left').split("px")[0]) - $('.'+selectEl).width() + 300: $(evt.target).css('left')
+            });
+
+            $('.'+selectEl).show();
+        });
+
+        $('.popup-info').on('mouseout', function(){
+            $('.popup').hide();
+        })
+
+        function animationStart(){
+            moveIcon = setInterval(function(){   
+                _.each($('.citem1, .citem2, .citem3, .citem4'), function(el, i){
+                    $(el).animate({
+                        top: Math.round(Math.random()*700) + 100,
+                        left: Math.round(Math.random()*1400) + 100
+                    });
+                });
+            }, 3000);
+
+            gradientIcon = setInterval(function(){    
+                opacity = opacity + 0.1;
+                $('.circle-item').animate({
+                    opacity: opacity
+                });
+                if(opacity > 1){
+                    opacity = 0.3;
+                }
+            }, 500);
+        }
+
+        function animationStop(){
+            clearInterval(moveIcon)
+            clearInterval(gradientIcon)
+        }
 	});
 
 </script>

@@ -10,7 +10,6 @@
   src="https://code.jquery.com/jquery-2.2.4.min.js"
   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
   crossorigin="anonymous"></script>
-
 <script src="https://cdn.jsdelivr.net/npm/underscore@1.12.1/underscore-min.js"></script>
 <script src="./slider.js"></script>
 
@@ -195,6 +194,14 @@
     <div class="popup-info relic-op"></div>
 </div>
 
+<div class="five-char-dialog" style="width:320px;height: 350px;">
+
+</div>
+
+<div class="four-char-dialog">
+
+</div>
+
 <script>
     var moveIcon,gradientIcon;
     var isOn = false;
@@ -272,10 +279,8 @@
             $('.popup-info').hide();
             console.log($(evt.target).attr("popupKey"));
             var selectEl= popupkey[$(evt.target).attr("popupKey")];
-            console.log(Number($(evt.target).css('top').split("px")[0]) + $('.'+selectEl).height() > window.innerHeight) 
-            console.log(Number($(evt.target).css('left').split("px")[0]) + $('.'+selectEl).width() > window.innerWidth) 
             $('.popup').css({
-                top: $(evt.target).css('top'),
+                top: Number($(evt.target).css('top').split("px")[0]) + 20,
                 left: Number($(evt.target).css('left').split("px")[0]) + $('.'+selectEl).width() > window.innerWidth ? Number($(evt.target).css('left').split("px")[0]) - $('.'+selectEl).width() + 300: $(evt.target).css('left')
             });
 
@@ -311,6 +316,7 @@
             clearInterval(moveIcon)
             clearInterval(gradientIcon)
         }
+
 	});
 
 </script>

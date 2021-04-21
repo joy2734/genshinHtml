@@ -1,0 +1,8 @@
+[[redirects]]
+    from="/*"
+    to = "/home.html"
+    status=200
+[[redirects]]
+  from = "/*"
+  to = "/not-found-page.html"
+  status = 404

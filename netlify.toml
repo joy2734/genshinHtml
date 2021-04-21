@@ -4,5 +4,5 @@
     status=200
 [[redirects]]
   from = "/*"
-  to = "/not-found-page.html"
+  to = "/not-found-page.html#Error404"
   status = 404

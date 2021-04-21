@@ -536,12 +536,13 @@ ul,li{
     background-repeat:no-repeat;
     opacity: 0.8;
 }
-.c5-close-btn, .c4-close-btn{
+.c5-close-btn{
     background-image: url(images/times-circle.svg);
     width: 40px;
     height: 40px;
     background-repeat: no-repeat;
     cursor: pointer;
+    float: right;
 }
 
 .char-jaehwa{
@@ -602,11 +603,10 @@ ul,li{
     } 
     .c5-close-btn{
         min-width: 47px;
-        float: right;
     }
     .poster__arrows, .poster__arrows.reverse{
         left: 65%;
-        top: 113%
+        top: 108%;
     }
     .poster__arrows{
         top: 100%;   

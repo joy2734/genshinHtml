@@ -266,8 +266,89 @@
     
 </div>
 
-<div class="four-char-view">
-
+<div class="four-char-view" style="display: none;">
+    <div class="character__main">
+        <div class="character-info"></div>
+        <div class="c5-close-btn"></div>
+    </div>
+    <div class="character__page">
+        <div class="swiper-container character__swiper--page swiper-container-initialized swiper-container-horizontal swiper-container-thumbs">
+            <ul class="swiper-wrapper character__page--render">
+                <li class="swiper-slide" ctype="ab">
+                    <img src="images/character4/ab1.PNG" draggable="false"> 
+                    <p>엠버</p>
+                </li>
+                <li class="swiper-slide" ctype="bbr">
+                    <img src="images/character4/bbr1.PNG" draggable="false"> 
+                    <p>바바라</p>
+                </li>
+                <li class="swiper-slide" ctype="bd">
+                    <img src="images/character4/bd1.PNG" draggable="false"> 
+                    <p>북두</p>
+                </li>
+                <li class="swiper-slide" ctype="bn">
+                    <img src="images/character4/bn1.PNG" draggable="false"> 
+                    <p>베넷</p>
+                </li>
+                <li class="swiper-slide" ctype="diona">
+                    <img src="images/character4/diona1.png" draggable="false"> 
+                    <p>디오나</p>
+                </li>
+                <li class="swiper-slide" ctype="hc">
+                    <img src="images/character4/hc1.PNG" draggable="false"> 
+                    <p>행추</p>
+                </li>
+                <li class="swiper-slide" ctype="hl">
+                    <img src="images/character4/hl1.PNG" draggable="false"> 
+                    <p>향릉</p>
+                </li>
+                <li class="swiper-slide" ctype="jw">
+                    <img src="images/character4/jw1.PNG" draggable="false"> 
+                    <p>중운</p>
+                </li>
+                <li class="swiper-slide" ctype="keia">
+                    <img src="images/character4/keia1.png" draggable="false"> 
+                    <p>케이아</p>
+                </li>
+                <li class="swiper-slide" ctype="ls">
+                    <img src="images/character4/ls1.PNG" draggable="false"> 
+                    <p>리사</p>
+                </li>
+                <li class="swiper-slide" ctype="lz">
+                    <img src="images/character4/lz1.PNG" draggable="false"> 
+                    <p>로자리아</p>
+                </li>
+                <li class="swiper-slide" ctype="mg">
+                    <img src="images/character4/mg1.PNG" draggable="false"> 
+                    <p>응광</p>
+                </li>
+                <li class="swiper-slide" ctype="nl">
+                    <img src="images/character4/nl1.png" draggable="false"> 
+                    <p>노엘</p>
+                </li>
+                <li class="swiper-slide" ctype="ps">
+                    <img src="images/character4/ps1.PNG" draggable="false"> 
+                    <p>피슬</p>
+                </li>
+                <li class="swiper-slide" ctype="razer">
+                    <img src="images/character4/razer1.PNG" draggable="false"> 
+                    <p>레이저</p>
+                </li>
+                <li class="swiper-slide" ctype="st">
+                    <img src="images/character4/st1.PNG" draggable="false"> 
+                    <p>설탕</p>
+                </li>
+                <li class="swiper-slide" ctype="sy">
+                    <img src="images/character4/sy1.PNG" draggable="false"> 
+                    <p>신염</p>
+                </li>
+            </ul>
+            <div class="swiper-pagination"></div>
+            <span class="swiper-notification"></span>
+        </div> 
+        <div class="swiper-btn-prev"></div> 
+        <div class="swiper-btn-next"></div>
+    </div>
 </div>
 
 <script>
@@ -327,15 +408,18 @@
         });
 
         $('.header__navitem__sublist .header__navitem').on('click', function(evt){
+            $('.four-char-view .character-info, .four-char-view').hide();
+            $('.five-char-view .character-info, .four-char-view').hide();
             if((evt.target).classList[1] == 'five'){
                 $('.five-char-view').show();
-                $('.character-info').show();
-                $('.c5-close-btn').show();
-                //$('.swiper-slide:eq(0)').click();
+                $('.five-char-view .character-info').show(2500);
                 swiper.update();
             }else{
                 $('.four-char-view').show();
+                $('.four-char-view .character-info').show(2500);
+                swiperfour.update();
             }
+            $('.c5-close-btn').show();
         });
 
         //arrow scroll down
@@ -401,28 +485,30 @@
             clearInterval(gradientIcon)
         }
 
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        var swiper = new Swiper('.swiper-container', {
+        var swiper = new Swiper('.five-char-view .swiper-container', {
             // Optional parameters
             slidesPerView: 8,
             spaceBetween: 34,
             direction: 'horizontal',
             loop: true,
             navigation: {
-                nextEl: '.swiper-btn-next',
-                prevEl: '.swiper-btn-prev',
+                nextEl: '.five-char-view .swiper-btn-next',
+                prevEl: '.five-char-view .swiper-btn-prev',
             },
             on: {
                 init: function () {
-                    loadCharacter5View($('.swiper-slide:eq(0)'));
+                    loadCharacter5View($('.five-char-view .swiper-slide:eq(0)'));
                     this.slideTo(0)
                 },
             }
         });
 
-        $('.swiper-slide').on('click', function(evt){
+        $('.five-char-view .swiper-slide').on('click', function(evt){
             var el;
-            var index = $('.swiper-slide').index(this)
+            var index = $('.five-char-view .swiper-slide').index(this)
             if($(evt.target).is('.swiper-slide')){
                 el = $(evt.target)
             }else{
@@ -433,8 +519,9 @@
         });
 
         $('.c5-close-btn').on('click', function(evt){
-            $('.character-info, .five-char-view').hide();
-            $(this).hide();
+            $('.four-char-view .character-info, .four-char-view').hide();
+            $('.five-char-view .character-info, .five-char-view').hide();
+            $('.c5-close-btn').hide();
         });
 
         swiper.on('click', function (swpr, el) {
@@ -446,13 +533,65 @@
 
         swiper.on('slideChange', function (swpr) {
             console.log('slideChange')
-            loadCharacter5View($('.swiper-slide:eq('+ swpr.activeIndex + ')'))
+            loadCharacter5View($('.five-char-view .swiper-slide:eq('+ swpr.activeIndex + ')'))
         });
 
         function loadCharacter5View($el){
             var ctype = $el.attr('ctype')
             console.log('loadCharacter5View')
-            $('.character-info').css("background-image", "url(images/character5/" + ctype + "1.jpg)")
+            $('.five-char-view .character-info').css("background-image", "url(images/character5/" + ctype + "1.jpg)")
+        }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        var swiperfour = new Swiper('.four-char-view .swiper-container', {
+            // Optional parameters
+            slidesPerView: 8,
+            spaceBetween: 34,
+            direction: 'horizontal',
+            loop: true,
+            navigation: {
+                nextEl: '.four-char-view .swiper-btn-next',
+                prevEl: '.four-char-view .swiper-btn-prev',
+            },
+            on: {
+                init: function () {
+                    loadCharacter4View($('.four-char-view .swiper-slide:eq(0)'));
+                    this.slideTo(0)
+                },
+            }
+        });
+
+        $('.four-char-view .swiper-slide').on('click', function(evt){
+            var el;
+            var index = $('.four-char-view .swiper-slide').index(this)
+            if($(evt.target).is('.swiper-slide')){
+                el = $(evt.target)
+            }else{
+                el = $(evt.target).closest('.swiper-slide')
+            }
+            swiperfour.slideTo(index);
+            loadCharacter4View(el)
+        });
+
+        swiperfour.on('click', function (swpr, el) {
+            console.log('click')
+            if($(el.path[1]).is('.swiper-slide')){
+                loadCharacter4View($(el.path[1]))
+            }
+        });
+
+        swiperfour.on('slideChange', function (swpr) {
+            console.log('slideChange')
+            loadCharacter4View($('.four-char-view .swiper-slide:eq('+ swpr.activeIndex + ')'))
+        });
+
+        function loadCharacter4View($el){
+            var ctype = $el.attr('ctype')
+            console.log('loadCharacter4View')
+            $('.four-char-view .character-info').css("background-image", "url(images/character4/" + ctype + ".PNG)")
         }
 
 	});

@@ -409,9 +409,9 @@
         font-weight: bold;
         color:#484848;
     }
-    .five-char-view{
+    .five-char-view, .four-char-view{
         position: absolute;
-        top: 69%;
+        top: 72%;
         height: 180px;
         width: 100%;
     }
@@ -525,7 +525,14 @@
         background-repeat:no-repeat;
         opacity: 0.8;
     }
-    .c5-close-btn{
+    .four-char-view .character-info{
+        justify-content: center;
+        width:45%;
+        height:90%;
+        background-repeat:no-repeat;
+        opacity: 0.8;
+    }
+    .c5-close-btn, .c4-close-btn{
         background-image: url(images/times-circle.svg);
         width: 40px;
         height: 40px;
@@ -550,7 +557,7 @@
     .relic-func{
         float: left;
         width: 772px;
-        height: 1100px;
+        height: 924px;
         background-image: url(images/relic_func.PNG);
         background-repeat: no-repeat;
     }

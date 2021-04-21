@@ -28,9 +28,9 @@
             <option value="1">공퍼/체퍼</option>
             <option value="2">방퍼</option>
         </select><br/>
-        메인: <input id="dmgPoint" type="text" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" />%<br/>
-        치확: <input id="creticalRating" type="text" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" />%<br/>
-        치피: <input id="creticalDemage" type="text" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" />%
+        메인: <input id="dmgPoint" type="text" onKeyup="this.value=this.value.replace(/[^0-9,\.]/g,'');" />%<br/>
+        치확: <input id="creticalRating" type="text" onKeyup="this.value=this.value.replace(/[^0-9,\.]/g,'');" />%<br/>
+        치피: <input id="creticalDemage" type="text" onKeyup="this.value=this.value.replace(/[^0-9,\.]/g,'');" />%
         <button id="computing">계산</button>
         <div style="padding: 10px;">성유물포인트: <input id="relicPoint" type="text" readonly /></div>
         <div id="btic" style="color: red; font-size: 15px;"></div>

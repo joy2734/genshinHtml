@@ -20,8 +20,8 @@
 <div style="height:80%;">
     <div style="float:left;width:30%;height:100%;background-repeat:no-repeat;padding: 20px">
         <h2>치명확률/피해 비율에 관한 효율치 계산기입니다.(수정필요)</h2>
-        치확: <input id="creticalRating" type="text" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" />%
-        치피: <input id="creticalDemage" type="text" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" />%
+        치확: <input id="creticalRating" type="text" onKeyup="this.value=this.value.replace(/[^0-9,\.]/g,'');" />%
+        치피: <input id="creticalDemage" type="text" onKeyup="this.value=this.value.replace(/[^0-9,\.]/g,'');" />%
         <button id="computing">계산</button>
         <div style="padding: 10px;">치명효율계산: <input id="creticalComputing" type="text" readonly /></div>
     </div>
